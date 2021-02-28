@@ -1,0 +1,34 @@
+# import webdriver. to do so install selenium
+# pip install -U selenium ((command for windows) py -3 -m pip)
+# then a driver is required, find one here:
+# https://sites.google.com/a/chromium.org/chromedriver/downloads
+# 
+# e.g. ChromeDriver 88.0.4324.96
+# et al the ChromeDriver Canary page.
+
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+import time
+
+# instantiate a browser instance
+browser = webdriver.Chrome(ChromeDriverManager().install())
+
+# now we have access to a chrome browser instance
+browser.get('https://www.w3schools.com/')
+
+#let's wait a certain amount of time, load the page
+time.sleep(5)
+
+# execute something like clicking a button or a link
+# use ctr + U on any website to retrieve source
+# create button instance and find element in the site source
+
+button = browser.find_element_by_link_text('LEARN CSS')
+button.click()
+
+# let the action load
+time.sleep(5)
+
+# close 
+browser.close()
+
